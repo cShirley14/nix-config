@@ -1,0 +1,61 @@
+" Disable compatibility with vi which can cause unexpected issues.
+set nocompatible
+" Turn syntax highlighting on
+syntax on
+" Do not save backup files.
+set nobackup
+" Do not let cursor scroll below or above N number of lines when scrolling.
+set scrolloff=10
+" Do not wrap lines. Allow long lines to extend as far as the line goes.
+set nowrap
+" While searching though a file incrementally highlight matching characters as you type.
+set incsearch
+" Show partial command you type in the last line of the screen.
+set showcmd
+" Show the mode you are on the last line.
+set showmode
+" Show matching words during a search.
+set showmatch
+" Use highlighting when doing a search.
+set hlsearch
+" Set the commands to save in history default number is 20.
+set history=1000
+" Highlight cursor line underneath the cursor horizontally.
+set cursorline
+" Highlight cursor line underneath the cursor vertically.
+set cursorcolumn
+
+" Enable auto completion menu after pressing TAB.
+set wildmenu
+" Make wildmenu behave like similar to Bash completion.
+set wildmode=list:longest
+" There are certain files that we would never want to edit with Vim.
+" Wildmenu will ignore files with these extensions.
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+" Set the color scheme.
+colorscheme dracula
+set ai
+set sts=2
+set sw=2
+set ts=2
+syntax on
+
+let g:ale_sign_errror = '💣'
+let g:ale_sign_warning = '🚩'
+let g:ale_statusline_format = ['💣 %d', '🚩 %d', '']
+
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? 'OK' : printf(
+        \   '%d💣 %d🚩 ',
+        \   all_non_errors,
+        \   all_errors
+        \)
+endfunction
+set statusline+=%=
+set statusline+=\ %{LinterStatus()}
+
+" ctrl+e to the ale error
+nmap <silent> <C-e> <Plug>(ale_next_wrap)

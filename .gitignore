@@ -1,0 +1,7 @@
+.vscode
+/.direnv/
+result
+result-*
+.cache
+.gitconfig
+.local

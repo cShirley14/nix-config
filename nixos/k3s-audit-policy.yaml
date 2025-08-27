@@ -1,0 +1,30 @@
+apiVersion: audit.k8s.io/v1
+kind: Policy
+rules:
+  # Log requests to sensitive resources
+  - level: RequestResponse
+    resources:
+    - group: ""
+      resources: ["secrets", "configmaps"]
+    - group: "rbac.authorization.k8s.io"
+      resources: ["*"]
+  
+  # Log authentication failures
+  - level: Metadata
+    omitStages:
+      - RequestReceived
+    resources:
+    - group: ""
+      resources: ["events"]
+    
+  # Log all admin actions
+  - level: Request
+    users: ["system:admin"]
+    
+  # Log pod creation/deletion
+  - level: Request
+    resources:
+    - group: ""
+      resources: ["pods"]
+    verbs: ["create", "delete"]
+    
