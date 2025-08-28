@@ -86,6 +86,8 @@ in
     ./scripts/update.nix
     # Security hardening
     /home/${username}/${os-other}/security.nix
+    # Power management for WiFi suspend/resume issues
+    # /home/${username}/${os-other}/power-management.nix
   ];
 
   environment = {

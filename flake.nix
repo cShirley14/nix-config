@@ -34,7 +34,7 @@
     {
       nixosConfigurations = {
         # Hostname.
-        dev = lib.nixosSystem {
+        ${hostname} = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit username hostname os-other; };
           # All the nix modules that build up the system configuration.
