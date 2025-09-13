@@ -12,72 +12,6 @@
   os-other,
   ...
 }:
-let
-  amazonQCli_1_8_0 = pkgs.rustPlatform.buildRustPackage rec {
-    pname = "amazon-q-cli";
-    version = "1.8.0";
-    src = pkgs.fetchFromGitHub {
-      owner = "aws";
-      repo = "amazon-q-developer-cli";
-      tag = "v${version}";
-      # Use a temporary hash, run nixos-rebuild, copy the real hash it asks for
-      hash = "sha256-fOz9oz+xNwX2Bzl6szgQ9oai6lqP+EzbaCNzHPUT2cA=";
-    };
-
-    cargoHash = "sha256-H9bCke3vQDuS6RDEg8dzeFiBWCex64A8KSRhfgyp8e8=";
-
-    cargoBuildFlags = [
-      "-p"
-      "q_cli"
-    ];
-    cargoTestFlags = [
-      "-p"
-      "q_cli"
-    ];
-
-    # skip integration tests that have external dependencies
-    checkFlags = [
-      "--skip=cli::chat::tests::test_flow"
-      "--skip=cli::init::tests::test_prompts"
-      "--skip=debug_get_index"
-      "--skip=debug_list_intellij_variants"
-      "--skip=debug_refresh_auth_token"
-      "--skip=local_state_all"
-      "--skip=local_state_get"
-      "--skip=settings_all"
-      "--skip=settings_get"
-      "--skip=user_whoami"
-      "--skip=init_lint_bash_post_bash_profile"
-      "--skip=init_lint_bash_post_bashrc"
-      "--skip=init_lint_bash_pre_bash_profile"
-      "--skip=init_lint_bash_pre_bashrc"
-      "--skip=init_lint_fish_pre_00_fig_pre"
-      "--skip=init_lint_zsh_post_zprofile"
-      "--skip=init_lint_zsh_post_zshrc"
-      "--skip=init_lint_zsh_pre_zprofile"
-      "--skip=init_lint_zsh_pre_zshrc"
-    ];
-
-    nativeBuildInputs = with pkgs; [
-      protobuf
-    ];
-
-    postInstall = ''
-      mv $out/bin/q_cli $out/bin/amazon-q
-    '';
-
-    meta = {
-      description = "Amazon Q Developer AI coding agent CLI";
-      homepage = "https://github.com/aws/amazon-q-developer-cli";
-      license = with lib.licenses; [
-        mit
-        asl20
-      ];
-      maintainers = [ lib.maintainers.jamesward ];
-      platforms = lib.platforms.linux;
-    };
-  };
-in
 {
   imports = [
     # Include the results of the hardware scan.
@@ -94,8 +28,8 @@ in
     pathsToLink = [ "/share/zsh" ];
     etc."rancher/k3s/audit-policy.yaml".source = ./k3s-audit-policy.yaml;
     systemPackages = with pkgs; [
-      amazonQCli_1_8_0
-      # amazon-q-cli
+      # amazonQCli_1_8_0
+      amazon-q-cli
       bashInteractive
       chromium
       delta
@@ -121,13 +55,14 @@ in
       nodePackages.prettier
       nordic
       nvd
+      openvpn
       pandoc
       pinentry
       pre-commit
       runc
       shellcheck
       starship
-      terraform-docs
+      # terraform-docs
       terraform-ls
       terraform
       terminator
@@ -200,10 +135,18 @@ in
   i18n = import ./settings/il8n.nix;
 
   # Services.
-  services = import /home/${username}/${os-other}/service.nix { inherit pkgs lib config username; };
+  services = import /home/${username}/${os-other}/service.nix {
+    inherit
+      pkgs
+      lib
+      config
+      username
+      hostname
+      ;
+  };
 
   # SOPS management.
-  sops = import (builtins.readFile "/run/secrets/sops-path") {inherit lib config; };
+  sops = import (builtins.readFile "/run/secrets/sops-path") { inherit lib config; };
 
   users = import ./settings/users.nix { inherit pkgs config username; };
 
