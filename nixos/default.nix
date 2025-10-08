@@ -48,7 +48,7 @@
       jq
       k3s
       kubectl
-      libreoffice
+      # libreoffice
       nil
       nixfmt-rfc-style
       nixpkgs-fmt
@@ -62,6 +62,7 @@
       runc
       shellcheck
       starship
+      steam
       # terraform-docs
       terraform-ls
       terraform
@@ -71,6 +72,7 @@
       vim
       vlc
       vscodium
+      vulkan-tools
       wget
       xorg.xev
     ];

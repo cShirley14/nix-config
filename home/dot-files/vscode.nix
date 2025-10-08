@@ -16,7 +16,7 @@
     redhat.java
     redhat.vscode-yaml
     timonwong.shellcheck
-    vscode-icons-team.vscode-icons
+    # vscode-icons-team.vscode-icons
     vscodevim.vim
     zhuangtongfa.material-theme
   ];
