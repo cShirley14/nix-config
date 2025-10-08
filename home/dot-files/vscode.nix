@@ -2,10 +2,11 @@
   profiles.default.extensions = with vscodeExtensions.vscode-marketplace; [
     amazonwebservices.amazon-q-vscode
     astro-build.astro-vscode
+    catppuccin.catppuccin-vsc
     eamodio.gitlens
     editorconfig.editorconfig
     esbenp.prettier-vscode
-    gruntfuggly.todo-tree
+    # gruntfuggly.todo-tree
     hashicorp.terraform
     jnoortheen.nix-ide
     ms-python.python
@@ -16,9 +17,9 @@
     redhat.java
     redhat.vscode-yaml
     timonwong.shellcheck
-    vscode-icons-team.vscode-icons
+    # vscode-icons-team.vscode-icons
     vscodevim.vim
-    zhuangtongfa.material-theme
+    # zhuangtongfa.material-theme
   ];
 
   package = pkgs.vscodium;

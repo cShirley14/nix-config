@@ -1,8 +1,8 @@
 { pkgs, ... }: {
   enable = true;
-  userName = "cshirley14";
-  userEmail = "47926057+cShirley14@users.noreply.github.com";
-  extraConfig = {
+  settings = {
+    user.name = "cshirley14";
+    user.email = "47926057+cShirley14@users.noreply.github.com";
     commit.gpgsign = true;
     gpg.format = "ssh";
     gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
