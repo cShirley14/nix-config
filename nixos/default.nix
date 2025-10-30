@@ -57,7 +57,7 @@
       nvd
       openvpn
       pandoc
-      pinentry
+      pinentry-gnome3
       pre-commit
       runc
       shellcheck
