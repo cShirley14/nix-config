@@ -18,6 +18,7 @@ let
     # sudo nix flake lock --recreate-lock-file --commit-lock-file "$HOME"
     nix flake update
     nix flake lock --commit-lock-file "$HOME"
+    git add flake.lock
     git commit -m "chore: lockfile update"
 
     # Build system.
