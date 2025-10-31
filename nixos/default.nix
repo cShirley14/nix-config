@@ -73,7 +73,9 @@
       vlc
       vscodium
       vulkan-tools
+      warp-terminal
       wget
+      xclip
       xorg.xev
     ];
   };
@@ -81,7 +83,7 @@
   fonts.packages = with pkgs; [
     cascadia-code
     noto-fonts
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     fira-code
     fira-code-symbols
   ];
@@ -126,9 +128,6 @@
 
   # Nix Flakes.
   nix = import ./settings/nix.nix { inherit pkgs; };
-
-  # Bootloader.
-  boot = import ./settings/boot.nix;
 
   # Networking.
   networking = import /home/${username}/${os-other}/networking.nix { inherit hostname; };
