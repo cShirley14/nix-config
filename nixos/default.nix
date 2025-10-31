@@ -73,6 +73,7 @@
       vlc
       vscodium
       vulkan-tools
+      warp-terminal
       wget
       xorg.xev
     ];
@@ -81,7 +82,7 @@
   fonts.packages = with pkgs; [
     cascadia-code
     noto-fonts
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     fira-code
     fira-code-symbols
   ];
