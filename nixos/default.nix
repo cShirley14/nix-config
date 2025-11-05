@@ -128,9 +128,6 @@
   # Nix Flakes.
   nix = import ./settings/nix.nix { inherit pkgs; };
 
-  # Bootloader.
-  boot = import ./settings/boot.nix;
-
   # Networking.
   networking = import /home/${username}/${os-other}/networking.nix { inherit hostname; };
 
