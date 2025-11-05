@@ -8,7 +8,7 @@ let
     curr_dir=$(pwd)
     cd "$HOME"
 
-    git config --global user.email "cShirley14@users.noreply.github.com"
+    git config --global user.email "47926057+cShirley14@users.noreply.github.com"
     git config --global user.name "cshirley14"
 
     # Get Old Generation for Comparison
