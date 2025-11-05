@@ -75,6 +75,7 @@
       vulkan-tools
       warp-terminal
       wget
+      xclip
       xorg.xev
     ];
   };
