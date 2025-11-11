@@ -8,13 +8,13 @@
     gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
     user.signingkey = "~/.ssh/id_ed25519.pub";
 
-    core.editor = "vim";
+    core = {
+      editor = "vim";
+      pager = "${pkgs.delta}/bin/delta";
+    };
     branch = {
       autoSetupMerge = "inherit";
       autoSetupRebase = "always";
-    };
-    core = {
-      pager = "${pkgs.delta}/bin/delta";
     };
     delta = {
       line-numbers = true;
