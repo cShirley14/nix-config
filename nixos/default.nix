@@ -50,7 +50,7 @@
       kubectl
       # libreoffice
       nil
-      nixfmt-rfc-style
+      nixfmt
       nixpkgs-fmt
       nodePackages.prettier
       nordic
