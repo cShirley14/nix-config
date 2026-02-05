@@ -34,6 +34,7 @@
     "amazonQ.telemetry" = false;
     "amazonQ.shareContentWithAWS" = false;
     "amazonQ.suppressPrompts.amazonQChatDisclaimer" = true;
+    "amazonQ.workspaceIndexUseGPU" = true;
 
     # 👩🏽‍💻 Terminal
     "terminal.integrated.fontFamily" = "'Cascadia Code', 'Fira Code', 'Droid Sans Mono', 'monospace'";
