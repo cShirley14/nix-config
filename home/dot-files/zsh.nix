@@ -64,5 +64,8 @@
 
     # kubernetes Aliases
     kubeUnset = "kubectl config unset current-context";
+
+    # Falco
+    falco = "/opt/falco/usr/bin/falco -c /opt/falco/etc/falco/falco.yaml -r /opt/falco/etc/falco/falco_rules.yaml";
   };
 }
