@@ -22,7 +22,7 @@
         sed -i 's/^load_plugins: \[\]/load_plugins: [container]/' "$FALCO_DIR/etc/falco/falco.yaml"
         sed -i 's|library_path: libcontainer.so|library_path: /opt/falco/usr/share/falco/plugins/libcontainer.so|' "$FALCO_DIR/etc/falco/falco.yaml"
       '';
-      ExecStart = "/opt/falco/usr/bin/falco -c /opt/falco/etc/falco/falco.yaml -r /opt/falco/etc/falco/falco_rules.yaml";
+      ExecStart = "/opt/falco/usr/bin/falco -c /opt/falco/etc/falco/falco.yaml";
       Restart = "on-failure";
     };
   };
