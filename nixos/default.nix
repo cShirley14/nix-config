@@ -77,7 +77,7 @@
       warp-terminal
       wget
       xclip
-      xorg.xev
+      xev
     ];
   };
 
