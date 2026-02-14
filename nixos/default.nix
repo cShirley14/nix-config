@@ -14,6 +14,7 @@
 }:
 {
   imports = [
+    ./cilium.nix
     ./falco.nix
     # Include the results of the hardware scan.
     /home/${username}/${os-other}/hardware-configuration.nix
