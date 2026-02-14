@@ -65,6 +65,7 @@
       shellcheck
       starship
       steam
+      sweethome3d.application
       # terraform-docs
       terraform-ls
       terraform
