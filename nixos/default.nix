@@ -50,7 +50,7 @@
       jq
       k3s
       kubectl
-      # libreoffice
+      libreoffice
       nil
       nixfmt
       nixpkgs-fmt
