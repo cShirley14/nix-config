@@ -23,6 +23,28 @@
       ...
     }:
     let
+#       -- Source - https://stackoverflow.com/a/78513341
+# -- Posted by TheHans255, modified by community. See post 'Timeline' for change history
+# -- Retrieved 2026-03-24, License - CC BY-SA 4.0
+
+# outputs = { nixpkgs, ... }@attrs: {
+#   nixosConfigurations = {
+#     your-hostname = let {
+#       pkgs = import nixpkgs {
+#         system = "x86_64-linux"; # whatever your system name is
+#         config = {
+#           allowUnfree = true;
+#           allowUnfreePredicate = _: true;
+#         };
+#       };
+#     in nixpkgs.lib.nixosSystem {
+#       system = "x86_64-linux"; # whatever your system name is
+#       specialArgs = attrs // { pkgs = pkgs };
+#       # ... whatever else you're doing here
+#     };
+#   };
+# };
+
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       # Where all the helper pkgs live.

@@ -22,6 +22,8 @@
     ./scripts/update.nix
     # Security hardening
     /home/${username}/${os-other}/security.nix
+    # ClamAV antivirus
+    /home/${username}/${os-other}/clamav.nix
     # Power management for WiFi suspend/resume issues
     # /home/${username}/${os-other}/power-management.nix
   ];
@@ -33,6 +35,8 @@
       # amazonQCli_1_8_0
       amazon-q-cli
       bashInteractive
+      clamav
+      # claude-code
       chromium
       delta
       docker
@@ -49,12 +53,13 @@
       htop
       jq
       k3s
+      kiro
       kubectl
       libreoffice
       nil
       nixfmt
       nixpkgs-fmt
-      nodePackages.prettier
+      # nodePackages.prettier
       nordic
       nvd
       openvpn
@@ -80,6 +85,7 @@
       wget
       xclip
       xev
+      zoom-us
     ];
   };
 

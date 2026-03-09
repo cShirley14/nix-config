@@ -22,7 +22,7 @@ let
     git commit -m "chore: lockfile update"
 
     # Build system.
-    sudo nixos-rebuild --impure -I nixos-config="$HOME" --show-trace switch --flake "$HOME"
+    sudo nixos-rebuild --impure --install-bootloader -I nixos-config="$HOME" --show-trace switch --flake "$HOME"
 
     # Get New Generation & Report
     nixos_new_gen=$(readlink -f /run/current-system)

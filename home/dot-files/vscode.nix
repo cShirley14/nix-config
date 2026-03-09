@@ -1,6 +1,7 @@
 { pkgs, vscodeExtensions }: {
   profiles.default.extensions = with vscodeExtensions.vscode-marketplace; [
-    amazonwebservices.amazon-q-vscode
+    # amazonwebservices.amazon-q-vscode
+    # anthropic.claude-code
     astro-build.astro-vscode
     catppuccin.catppuccin-vsc
     eamodio.gitlens
