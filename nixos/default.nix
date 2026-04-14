@@ -54,6 +54,7 @@
       jq
       k3s
       kiro
+      kiro-cli
       kubectl
       libreoffice
       nil
