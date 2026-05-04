@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   enable = true;
+  signing.format = "ssh";
   settings = {
     user.name = "cshirley14";
     user.email = "47926057+cShirley14@users.noreply.github.com";

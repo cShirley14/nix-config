@@ -27,7 +27,7 @@
     terminator = import ./dot-files/terminator.nix { inherit pkgs; };
 
     # VSCodium
-    vscode = import ./dot-files/vscode.nix { inherit pkgs vscodeExtensions; };
+    vscodium = import ./dot-files/vscode.nix { inherit pkgs vscodeExtensions; };
     # vscode = import ./dot-files/vscode-official.nix { inherit pkgs vscodeExtensions; };
 
     # direnv
