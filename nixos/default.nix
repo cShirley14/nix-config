@@ -40,6 +40,7 @@
       chromium
       delta
       docker
+      drawio
       gimp
       git-crypt
       git
