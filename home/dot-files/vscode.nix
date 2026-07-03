@@ -20,7 +20,7 @@
     timonwong.shellcheck
     # vscode-icons-team.vscode-icons
     vscodevim.vim
-    zhuangtongfa.material-theme
+    # zhuangtongfa.material-theme
   ];
 
   package = pkgs.vscodium;
